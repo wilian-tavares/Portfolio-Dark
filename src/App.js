@@ -7,14 +7,19 @@ import { BiLogoHtml5, BiLogoJavascript, BiLogoCss3, BiLogoReact, BiLogoSass } fr
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
-
+import {ThemeContext} from '../src/contexts/themeContext/theme';
+import { useContext } from 'react';
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  // const [theme, setTheme] = useState('light');
+
+  const {theme, ToggleTheme} = useContext(ThemeContext);
 
 
   function toggleNav() {
     setIsNavOpen(!isNavOpen);
+    console.log(isNavOpen)
   }
 
 
@@ -34,9 +39,11 @@ function App() {
   height: 40px;
   width: 40px;
   color: var(--Black);
+
   border: none;
   display: none;
   flex-direction: column;
+
   border: 1px solid red;
 
  
@@ -54,11 +61,12 @@ function App() {
 const Header = styled.header`
   height: 90px;
   display: flex;
-  // justify-content: space-between; 
-  align-items: center; /* Adicione esta linha para alinhar verticalmente */
-  border:1px solid red;
+  justify-content: space-between; 
 
-  background-color: var(--White);
+  align-items: center; /* Adicione esta linha para alinhar verticalmente */
+  
+  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+
 
     @media(max-width: 900px){   
        align-items: center;
@@ -92,7 +100,9 @@ const Header = styled.header`
 `
 
   const Li = styled.li`
-  color: var(--Black);
+  color: blue;
+  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
+
   font-weight: bold;
   font-size: 24px;
 `
@@ -104,15 +114,21 @@ const Header = styled.header`
   width: 100px;
   height: 40px;
   font-weight: bold;
+
   background: var(--Black);
-  color: var(--White);
+  background-color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
+
+  color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+
   border-radius: 12px;
+
   cursor: pointer;
 `
 
   const A = styled.a`
   cursor: pointer;
-  color: var(--Black);
+  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
+
 `
 
   const Section = styled.section`
@@ -121,6 +137,8 @@ const Header = styled.header`
   display-flex;
 
   margin: 0 auto;
+
+  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
 `
 
   const About = styled.div`
@@ -182,6 +200,8 @@ max-width: 350px;
 
   const ContainerMain = styled.div`
   background: var(--Creme);
+  background-color: ${ theme === 'dark' ? 'var(--Gray)' : 'var(--Creme)'};
+
 `
 
   //PROJETOS
@@ -205,6 +225,7 @@ max-width: 350px;
   width: 90%;
 
   overflow-x: auto;
+  
 
 `
 
@@ -212,10 +233,14 @@ max-width: 350px;
   flex-shrink: 0;
   width: 90%;
   max-width: 500px;
+
   height: 300px;
   border-radius: 12px;
   padding: 20px;
-  background: var(--White);
+  
+  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Creme)'};
+
   margin-right: 20px;
   white-space: normal;
   overflow-y: auto; /* Adicione overflow-y aqui para rolagem vertical */
@@ -229,11 +254,11 @@ max-width: 350px;
 
   /* HABILIDADES */
   const Habilidades = styled.div`
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
   const ShieldHabilidades = styled.div`
@@ -299,7 +324,8 @@ max-width: 350px;
 `
   const Footer = styled.footer`
   height: 200px;
-  background: var(--White);
+  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -339,7 +365,7 @@ max-width: 350px;
             </Li>
           </Ul>
         </Nav>
-        <ButtonTheme>Dark</ButtonTheme>
+        <ButtonTheme onClick={() => ToggleTheme()}>Dark</ButtonTheme>
 
         
         <MenuBurger>
