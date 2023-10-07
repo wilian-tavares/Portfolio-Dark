@@ -16,7 +16,9 @@
   --Gray: #333333;
   --Cta: #00CC66;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .App {
 
     background-color: #f3f3f3; /* Substitua #f3f3f3 pelo código da cor que você deseja */

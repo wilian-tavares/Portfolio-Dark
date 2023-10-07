@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Logo from './assets/logo.png';
 
@@ -7,14 +7,30 @@ import { BiLogoHtml5, BiLogoJavascript, BiLogoCss3, BiLogoReact, BiLogoSass } fr
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
-import {ThemeContext} from '../src/contexts/themeContext/theme';
+import { ThemeContext } from '../src/contexts/themeContext/theme';
 import { useContext } from 'react';
 
+import { useGithubAutomatedRepos, ProjectIcon, StackIcon } from 'github-automated-repos/index';
+
 function App() {
+
+  const [repository, setRepository] = useState([])
+
+  useEffect(() => {
+    {/*Put here your github Name*/ }
+    fetch('https://api.github.com/users/wilian-tavares/repos?sort=created&per_page=999')
+      .then(response => response.json())
+      .then(data => setRepository(dataReposGithub(data, 'deploy'))); {/*<-- keyWord*/ }
+  }, [])
+
+  const { dataReposGithub } = useGithubAutomatedRepos()
+
+
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   // const [theme, setTheme] = useState('light');
 
-  const {theme, ToggleTheme} = useContext(ThemeContext);
+  const { theme, ToggleTheme } = useContext(ThemeContext);
 
 
   function toggleNav() {
@@ -58,14 +74,14 @@ function App() {
 
 
 
-const Header = styled.header`
+  const Header = styled.header`
   height: 90px;
   display: flex;
   justify-content: space-between; 
 
   align-items: center; /* Adicione esta linha para alinhar verticalmente */
   
-  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
 
 
     @media(max-width: 900px){   
@@ -101,7 +117,7 @@ const Header = styled.header`
 
   const Li = styled.li`
   color: blue;
-  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
 
   font-weight: bold;
   font-size: 24px;
@@ -116,9 +132,9 @@ const Header = styled.header`
   font-weight: bold;
 
   background: var(--Black);
-  background-color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
+  background-color: ${theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
 
-  color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
 
   border-radius: 12px;
 
@@ -127,7 +143,7 @@ const Header = styled.header`
 
   const A = styled.a`
   cursor: pointer;
-  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
 
 `
 
@@ -138,7 +154,7 @@ const Header = styled.header`
 
   margin: 0 auto;
 
-  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
 `
 
   const About = styled.div`
@@ -159,7 +175,7 @@ const Header = styled.header`
   align-items: center;
 `
 
-const AboutSocial = styled.div`
+  const AboutSocial = styled.div`
 margin-top: 20px;
 display: flex;
 justify-content: space-around;
@@ -200,7 +216,7 @@ max-width: 350px;
 
   const ContainerMain = styled.div`
   background: var(--Creme);
-  background-color: ${ theme === 'dark' ? 'var(--Gray)' : 'var(--Creme)'};
+  background-color: ${theme === 'dark' ? 'var(--Gray)' : 'var(--Creme)'};
 
 `
 
@@ -238,8 +254,8 @@ max-width: 350px;
   border-radius: 12px;
   padding: 20px;
   
-  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
-  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Creme)'};
+  background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  color: ${theme === 'dark' ? 'var(--Creme)' : 'var(--Black)'};
 
   margin-right: 20px;
   white-space: normal;
@@ -248,7 +264,7 @@ max-width: 350px;
 
   const CardContent = styled.div`
   max-width: 100%;
-  overflow-y: auto;
+  overflow-y: auto;  
 `
 
 
@@ -324,8 +340,8 @@ max-width: 350px;
 `
   const Footer = styled.footer`
   height: 200px;
-  background-color: ${ theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
-  color: ${ theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
+  background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -367,14 +383,14 @@ max-width: 350px;
         </Nav>
         <ButtonTheme onClick={() => ToggleTheme()}>Dark</ButtonTheme>
 
-        
+
         <MenuBurger>
 
-          <ButtonHamburger >
-            <GiHamburgerMenu size='30' onClick={() => toggleNav()} />
+          <ButtonHamburger name='menu-Header'>
+            <GiHamburgerMenu size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
           </ButtonHamburger>
 
-  
+
         </MenuBurger>
 
 
@@ -387,10 +403,10 @@ max-width: 350px;
             <Strong >Desenvolvedor Front-end</Strong>
             <Img src={Logo} alt='Foto Logo do Site' />
             <AboutSocial>
-              <A> <BsGithub size={30}/></A>
-             <A><BsLinkedin size={30} color='blue'/></A>
-              
-              
+              <A alt='Github' target='_blank' href='https://github.com/wilian-tavares'> <BsGithub size={30} alt='Github' /></A>
+              <A alt='Linkedin' target='_blank' href='https://www.linkedin.com/in/wiliantavaresoliveira/' ><BsLinkedin size={30} color='blue' alt='Linkedin' /></A>
+
+
             </AboutSocial>
           </AboutTitle>
           <AboutDescription>
@@ -416,18 +432,46 @@ max-width: 350px;
           <strong>Meus Principais Projetos</strong>
 
           <ShieldCards>
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
+            {
+              repository.map((item) => {
+                return (
+
+                  <CardProjetos key={item.id}>
+                    <CardContent>
+
+                      {/*Project Icon*/}
+                      {item.topics.map((icon) => {
+                        return (
+                          <ProjectIcon key={icon} className="project_Icon" iconItem={icon} />
+                        )
+                      })}
+                      {/*html Url*/}
+                      <A target='_black' href={item.html_url} alt='Link do projeto no GitHub'>
+                        {/*Name Project*/}
+                        <h3>{item.name}</h3>
+                      </A>
+                      {/*Description*/}
+                      <p>{item.description}</p>
+
+                      {/*Homepage*/}
+                      <A target='_blank' href={item.homepage} alt='Link do site'>
+                        <h3>Homepage</h3>
+                      </A>
+                      {/*Stacks Icon*/}
+                      {item.topics.map((icon) => {
+                        return (
+                          <strong><StackIcon key={icon} className="stack_Icon" iconItem={icon}  /></strong>
+                          
+                        )
+                      })}
+
+                    </CardContent>
+                  </CardProjetos>
+
+
+                )
+              })
+            }
 
             <CardProjetos>
               <CardContent>
@@ -442,57 +486,6 @@ max-width: 350px;
               </CardContent>
             </CardProjetos>
 
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
-
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
-
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
-
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
 
 
           </ShieldCards>
