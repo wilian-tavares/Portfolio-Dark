@@ -23,12 +23,12 @@ function App() {
       .then(data => setRepository(dataReposGithub(data, 'deploy'))); {/*<-- keyWord*/ }
   }, [])
 
-  const { dataReposGithub } = useGithubAutomatedRepos()
+  const { dataReposGithub } = useGithubAutomatedRepos();
 
 
 
   const [isNavOpen, setIsNavOpen] = useState(false);
-  // const [theme, setTheme] = useState('light');
+
 
   const { theme, ToggleTheme } = useContext(ThemeContext);
 
@@ -36,9 +36,8 @@ function App() {
   function toggleNav() {
     setIsNavOpen(!isNavOpen);
     console.log(isNavOpen)
+
   }
-
-
 
 
 
@@ -47,14 +46,17 @@ function App() {
   cursor: pointer;
   height: 40px;
   border:none;
- 
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
+  background: none;
   
 `
 
   const MenuBurger = styled.button`
   height: 40px;
   width: 40px;
-  color: var(--Black);
+ 
+
+ 
 
   border: none;
   display: none;
@@ -77,42 +79,57 @@ function App() {
   const Header = styled.header`
   height: 90px;
   display: flex;
-  justify-content: space-between; 
-
-  align-items: center; /* Adicione esta linha para alinhar verticalmente */
-  
+  justify-content: space-between;
+  align-items: center;
   background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
 
-
-    @media(max-width: 900px){   
-       align-items: center;
-       justify-content: space-around;
-      
-    }
+  @media (max-width: 900px) {
+    height: ${isNavOpen ? '500px' : '90px'}; // Altura condicional
+    align-items: center;
+    justify-content: space-around;
+  }
 
   `
   const Nav = styled.nav`
-  disply: flex;
+
   margin: 0 60px;
 
+
   width: 100%;
+ 
+  
+   {setIsNavOpen(false)}
+   
 
   @media(max-width: 900px){
     display: none;
+    display: ${isNavOpen ? 'flex' : 'none'};
+   
+   
+    justify-content: center;
+    flex-direction: column;
+
+   
   }
+
 `
 
   const Ul = styled.ul`
-  display: flex;
-  height: 90px;
+   display: flex;
+  height: 500px;
   align-items: center;
   justify-content: space-between;
+  
+  @media (max-width: 900px) {
+    display: ${isNavOpen ? 'flex' : 'none'}; // Ajuste aqui
+    
+    flex-direction: column;
+    background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
+    
+    width: 100vw;
+    justify-content: space-evenly;
 
-  // @media(max-width: 900px){
-  //   color: red;
-  //   flex-direction: column;
-
-  // }
+  }
 `
 
   const Li = styled.li`
@@ -139,6 +156,10 @@ function App() {
   border-radius: 12px;
 
   cursor: pointer;
+
+
+
+
 `
 
   const A = styled.a`
@@ -164,7 +185,14 @@ function App() {
   flex-wrap: wrap;                
   height: 100vh;
 
-`
+  
+
+  @media(max-width: 900px){
+    
+   
+  }
+
+`;
 
   const AboutTitle = styled.div`
   width: 80%;
@@ -379,19 +407,44 @@ max-width: 350px;
             <Li>
               <A href='#Contato'>Contato</A>
             </Li>
+            {isNavOpen ?
+
+              <>
+                <ButtonTheme aria-label="Alterar tema para escuro" onClick={() => ToggleTheme()}>Dark</ButtonTheme>
+
+
+                <MenuBurger aria-label="Abrir menu de navegação">
+
+                  <ButtonHamburger name='menu-Header' aria-label="Abrir menu de navegação"   >
+                    <GiHamburgerMenu  size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
+                  </ButtonHamburger>
+
+
+                </MenuBurger>
+
+
+
+              </>
+
+              : ''}
+
           </Ul>
         </Nav>
-        <ButtonTheme onClick={() => ToggleTheme()}>Dark</ButtonTheme>
 
+        {!isNavOpen ?
+          <>
+            <ButtonTheme alt='Button-Theme' onClick={() => ToggleTheme()}>Dark</ButtonTheme>
 
-        <MenuBurger>
+            <MenuBurger alt='Menu-Header'>
 
-          <ButtonHamburger name='menu-Header'>
-            <GiHamburgerMenu size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
-          </ButtonHamburger>
+              <ButtonHamburger alt='Button-Theme'  name='menu-Header'>
+                <GiHamburgerMenu size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
+              </ButtonHamburger>
 
-
-        </MenuBurger>
+            </MenuBurger>
+          </>
+          : ''
+        }
 
 
       </Header>
@@ -460,8 +513,8 @@ max-width: 350px;
                       {/*Stacks Icon*/}
                       {item.topics.map((icon) => {
                         return (
-                          <strong><StackIcon key={icon} className="stack_Icon" iconItem={icon}  /></strong>
-                          
+                          <strong><StackIcon key={icon} className="stack_Icon" iconItem={icon} /></strong>
+
                         )
                       })}
 
