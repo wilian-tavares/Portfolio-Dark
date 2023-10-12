@@ -11,6 +11,7 @@ import { ThemeContext } from '../src/contexts/themeContext/theme';
 import { useContext } from 'react';
 
 import { useGithubAutomatedRepos, ProjectIcon, StackIcon } from 'github-automated-repos/index';
+import Curriculo from './assets/curriculoWilianTavares.pdf';
 
 function App() {
 
@@ -473,7 +474,9 @@ max-width: 350px;
               Estou pronto para contribuir como um desenvolvedor Front-end altamente qualificado.
             </p>
 
-            <ButtonCta>Curriculo</ButtonCta>
+            <ButtonCta >
+            <A style={{color: 'black'}} href={Curriculo} download>Curriculo</A>
+            </ButtonCta>
 
           </AboutDescription>
         </About>
