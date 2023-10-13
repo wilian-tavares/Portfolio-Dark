@@ -27,6 +27,17 @@ function App() {
   const { dataReposGithub } = useGithubAutomatedRepos();
 
 
+  const [nome, setNome] = useState('');
+  const [sobreNome, setSobreNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [Telefone, setTelefone] = useState('');
+  const [mensagem, setMensagem] = useState('');
+
+  function SendEmail() {
+    console.log(nome)
+  }
+
+
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -41,43 +52,32 @@ function App() {
   }
 
 
-
-
-  const ButtonHamburger = styled.button`
+const ButtonHamburger = styled.button`
   cursor: pointer;
   height: 40px;
   border:none;
+
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
   background: none;
-  
 `
 
-  const MenuBurger = styled.button`
+const MenuBurger = styled.button`
   height: 40px;
   width: 40px;
- 
-
- 
-
   border: none;
+
   display: none;
   flex-direction: column;
-
   border: 1px solid red;
-
- 
-
+  
   @media(max-width: 900px) {
     display: contents;
     border: 1px solid red;
-
   }
 `
 
 
-
-
-  const Header = styled.header`
+const Header = styled.header`
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -91,60 +91,53 @@ function App() {
   }
 
   `
-  const Nav = styled.nav`
-
+const Nav = styled.nav`
   margin: 0 60px;
-
-
-  width: 100%;
- 
-  
-   {setIsNavOpen(false)}
-   
+  width: 100%; 
+  {setIsNavOpen(false)} 
 
   @media(max-width: 900px){
-    display: none;
-    display: ${isNavOpen ? 'flex' : 'none'};
-   
-   
-    justify-content: center;
-    flex-direction: column;
+  display: none;
+  display: ${isNavOpen ? 'flex' : 'none'}; 
 
-   
-  }
+  justify-content: center;
+  flex-direction: column;
+}
 
 `
 
-  const Ul = styled.ul`
-   display: flex;
+const Ul = styled.ul`
+  display: flex;
   height: 500px;
   align-items: center;
   justify-content: space-between;
   
+
   @media (max-width: 900px) {
-    display: ${isNavOpen ? 'flex' : 'none'}; // Ajuste aqui
-    
+    display: ${isNavOpen ? 'flex' : 'none'}; // Ajuste aqui 
     flex-direction: column;
-    background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
-    
+    background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'}; 
+
     width: 100vw;
     justify-content: space-evenly;
-
   }
 `
-
-  const Li = styled.li`
-  color: blue;
-  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
-
-  font-weight: bold;
-  font-size: 24px;
+const UlHabilidades = styled.ul`
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
 `
 
+const Li = styled.li`
+  color: blue;
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
+  font-weight: bold;
+  font-size: 24px;
 
+`
 
-
-  const ButtonTheme = styled.button`
+const ButtonTheme = styled.button`
   width: 100px;
   height: 40px;
   font-weight: bold;
@@ -153,128 +146,109 @@ function App() {
   background-color: ${theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
 
   color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
-
   border-radius: 12px;
-
   cursor: pointer;
-
-
-
-
 `
 
-  const A = styled.a`
+const A = styled.a`
   cursor: pointer;
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
-
 `
 
-  const Section = styled.section`
+const Section = styled.section`
   height: 80%;
   max-width: 1512px;
   display-flex;
 
   margin: 0 auto;
-
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
 `
 
-  const About = styled.div`
+const About = styled.div`
   display: flex;
   justify-content: space-around;
 
   flex-wrap: wrap;                
   height: 100vh;
-
-  
-
-  @media(max-width: 900px){
-    
-   
+  @media(max-width: 900px){  
   }
-
 `;
 
-  const AboutTitle = styled.div`
+const AboutTitle = styled.div`
   width: 80%;
   max-width: 350px;
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
-  const AboutSocial = styled.div`
-margin-top: 20px;
-display: flex;
-justify-content: space-around;
+const AboutSocial = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 
-width: 80%;
-max-width: 350px;
+  width: 80%;
+  max-width: 350px;
 
 `
 
-
-  const Img = styled.img`
+const Img = styled.img`
   height: 150px;
   width: 150px;
   border-radius: 50%;
 `
 
-  const AboutDescription = styled.div`
+const AboutDescription = styled.div`
   width: 80%;
   max-width: 650px;
-
-
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
 
-  const ButtonCta = styled.button`
+const ButtonCta = styled.button`
   width: 100px;
   height: 40px;
   font-weight: bold;
+
   background: var(--Cta);
   color: var(--Black);
   border-radius: 12px;
+
   cursor: pointer;
   margin-top: 30px;
 `
 
-  const ContainerMain = styled.div`
+const ContainerMain = styled.div`
   background: var(--Creme);
   background-color: ${theme === 'dark' ? 'var(--Gray)' : 'var(--Creme)'};
-
 `
 
   //PROJETOS
 
-  const Projetos = styled.div`
+const Projetos = styled.div`
   display: flex;
-
   height: 60vh;
-
   flex-direction:column;
+
   align-items:center;
   justify-content: center;
-
 `
 
-  const ShieldCards = styled.div`
+const ShieldCards = styled.div`
   display: flex;
   padding: 20px;
   margin-top: 50px;
 
   width: 90%;
-
   overflow-x: auto;
-  
-
 `
 
-  const CardProjetos = styled.div`
+const CardProjetos = styled.div`
   flex-shrink: 0;
   width: 90%;
   max-width: 500px;
@@ -291,38 +265,43 @@ max-width: 350px;
   overflow-y: auto; /* Adicione overflow-y aqui para rolagem vertical */
 `;
 
-  const CardContent = styled.div`
+const CardContent = styled.div`
   max-width: 100%;
   overflow-y: auto;  
 `
-
 
   /* HABILIDADES */
   const Habilidades = styled.div`
     height: 80vh;
     display: flex;
     flex-direction: column;
+
     justify-content: center;
-    align-items: center;
+    align-items: center;   
 `
 
-  const ShieldHabilidades = styled.div`
+const ShieldHabilidades = styled.div`
   margin-top: 100px;
   width: 80%;
   max-width: 950px;
+
   height: 120px;
+  
+ 
   overflow-x: auto;
+  overflow-y: hidden;
 `
 
-  const Contato = styled.div`
+const Contato = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 `
 
-  const ShieldContato = styled.div`
+const ShieldContato = styled.div`
   margin-top: 50px;
   width: 80%;
   max-width: 650px;
@@ -330,21 +309,22 @@ max-width: 350px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  
 `
-  const Input = styled.input`
+const Input = styled.input`
   padding: 20px;
   width: 80%;
   max-width: 300px;
+
   height: 45px;
   border-radius: 12px;
   font-size: 16px;
+
   font-weight: bold;
   margin-bottom: 30px;
 `
 
 
-  const TextArea = styled.textarea`
+const TextArea = styled.textarea`
   width: 100%;
   max-width: 630px;
   height: 150px;
@@ -354,20 +334,22 @@ max-width: 350px;
   
   font-weight: bold;
   font-size: 16px;
-
 `
 
-  const ButtonEnviar = styled.button`
+const ButtonEnviar = styled.button`
   width: 100px;
   height: 40px;
   font-weight: bold;
+
   background: var(--Cta);
   color: var(--Black);
   border-radius: 12px;
+
   cursor: pointer;
   margin-top: 30px;
 `
-  const Footer = styled.footer`
+
+const Footer = styled.footer`
   height: 200px;
   background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
@@ -376,18 +358,21 @@ max-width: 350px;
   align-items: center;
 `
 
-  const FooterContent = styled.div`
+const FooterContent = styled.div`
   width: 265px;
   height: 90px;
   display: flex;
+
   flex-direction: column;
   justify-content: space-between;
 `
-  const FooterSocialMedia = styled.div`
+
+const FooterSocialMedia = styled.div`
   display: flex;
   justify-content: space-between;
 `
-  const Strong = styled.strong`
+
+const Strong = styled.strong`
   margin: 20px 0; 
 `
 
@@ -417,7 +402,7 @@ max-width: 350px;
                 <MenuBurger aria-label="Abrir menu de navegação">
 
                   <ButtonHamburger name='menu-Header' aria-label="Abrir menu de navegação"   >
-                    <GiHamburgerMenu  size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
+                    <GiHamburgerMenu size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
                   </ButtonHamburger>
 
 
@@ -438,7 +423,7 @@ max-width: 350px;
 
             <MenuBurger alt='Menu-Header'>
 
-              <ButtonHamburger alt='Button-Theme'  name='menu-Header'>
+              <ButtonHamburger alt='Button-Theme' name='menu-Header'>
                 <GiHamburgerMenu size='30' onClick={() => toggleNav()} alt='Button Menu Header' />
               </ButtonHamburger>
 
@@ -475,7 +460,7 @@ max-width: 350px;
             </p>
 
             <ButtonCta >
-            <A style={{color: 'black'}} href={Curriculo} download>Curriculo</A>
+              <A style={{ color: 'black' }} href={Curriculo} download>Curriculo</A>
             </ButtonCta>
 
           </AboutDescription>
@@ -555,7 +540,7 @@ max-width: 350px;
         <Habilidades id='Habilidades'>
           <h2>Habilidades</h2>
           <ShieldHabilidades>
-            <Ul>
+            <UlHabilidades>
               <Li>
                 <BiLogoHtml5 color='red' size='96' />
               </Li>
@@ -599,7 +584,7 @@ max-width: 350px;
                 <BiLogoReact color='blue' size='96' />
               </Li>
 
-            </Ul>
+            </UlHabilidades>
           </ShieldHabilidades>
         </Habilidades>
       </Section>
@@ -609,14 +594,14 @@ max-width: 350px;
           <h2>Entre em Contato</h2>
           <ShieldContato>
 
-            <Input type='text' placeholder='Primeiro Nome' />
-            <Input type='text' placeholder='Segundo Nome' />
+            <Input type='text' placeholder='Primeiro Nome' name={nome} onChange={(e) => setNome(e.target.value)} />
+            <Input type='text' placeholder='Segundo Nome' name={sobreNome} onChange={(e) => setSobreNome(e.target.value)} />
 
-            <Input type='email' placeholder='Email' />
-            <Input type='tel' placeholder='Telefone' />
+            <Input type='email' placeholder='Email' name={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input type='tel' placeholder='Telefone' name={Telefone} onChange={(e) => setTelefone(e.target.value)} />
 
-            <TextArea placeholder='Mensagem...' />
-            <ButtonEnviar>Enviar</ButtonEnviar>
+            <TextArea placeholder='Mensagem...' name={mensagem} onChange={(e) => setMensagem(e.target.value)} />
+            <ButtonEnviar onClick={SendEmail}>Enviar</ButtonEnviar>
 
           </ShieldContato>
         </Contato>
