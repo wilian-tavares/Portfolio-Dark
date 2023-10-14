@@ -5,7 +5,7 @@ import Logo from './assets/logo.png';
 import Whatssap from './assets/whatssapp.svg';
 
 import { BiLogoHtml5, BiLogoJavascript, BiLogoCss3, BiLogoReact, BiLogoSass } from 'react-icons/bi';
-import { BsGithub, BsLinkedin, BsWhatsapp } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { ThemeContext } from '../src/contexts/themeContext/theme';
