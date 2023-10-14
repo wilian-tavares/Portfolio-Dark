@@ -170,7 +170,7 @@ const About = styled.div`
   justify-content: space-around;
 
   flex-wrap: wrap;                
-  height: 100vh;
+  min-height: 100vh;
   @media(max-width: 900px){  
   }
 `;
@@ -190,8 +190,9 @@ const AboutSocial = styled.div`
   display: flex;
   justify-content: space-around;
 
-  width: 80%;
+  min-width: 80%;
   max-width: 350px;
+  
 
 `
 
@@ -259,11 +260,12 @@ const ContainerMain = styled.div`
 
 const Projetos = styled.div`
   display: flex;
-  height: 60vh;
+  min-height: 60vh;
   flex-direction:column;
 
   align-items:center;
   justify-content: center;
+  margin-top: 50px;
 `
 
 const ShieldCards = styled.div`
