@@ -548,22 +548,6 @@ const Strong = styled.strong`
                 )
               })
             }
-
-            <CardProjetos>
-              <CardContent>
-                <h3>PomoPrize</h3>
-                <p>
-                  Wil Filmes é um site voltado sobre filmes,
-                  nele é listado os filmes mais populares,
-                  filmes no cinema e as próximas estreias.
-                  Podendo também adicionar seu filme favorito no Local Storage do navegador!
-                </p>
-                <strong>REACT-JS, JAVASCRIPT, RESPONSIVE DESIGN, API-REST</strong>
-              </CardContent>
-            </CardProjetos>
-
-
-
           </ShieldCards>
 
 
@@ -578,32 +562,6 @@ const Strong = styled.strong`
             <UlHabilidades>
               <Li>
                 <BiLogoHtml5 color='red' size='96' />
-              </Li>
-
-              <Li>
-                <BiLogoCss3 color='blue' size='96' />
-              </Li>
-              <Li>
-                <BiLogoSass color='pink' size='96' />
-              </Li>
-              <Li>
-                <BiLogoJavascript color='#dad60b' size='96' />
-              </Li>
-              <Li>
-                <BiLogoReact color='blue' size='96' />
-              </Li>
-
-              <Li>
-                <BiLogoCss3 color='blue' size='96' />
-              </Li>
-              <Li>
-                <BiLogoSass color='pink' size='96' />
-              </Li>
-              <Li>
-                <BiLogoJavascript color='#dad60b' size='96' />
-              </Li>
-              <Li>
-                <BiLogoReact color='blue' size='96' />
               </Li>
 
               <Li>
