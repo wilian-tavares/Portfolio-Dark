@@ -2,9 +2,10 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Logo from './assets/logo.png';
+import Whatssap from './assets/whatssapp.svg';
 
 import { BiLogoHtml5, BiLogoJavascript, BiLogoCss3, BiLogoReact, BiLogoSass } from 'react-icons/bi';
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsWhatsapp } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { ThemeContext } from '../src/contexts/themeContext/theme';
@@ -27,15 +28,15 @@ function App() {
   const { dataReposGithub } = useGithubAutomatedRepos();
 
 
-  const [nome, setNome] = useState('');
-  const [sobreNome, setSobreNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [Telefone, setTelefone] = useState('');
-  const [mensagem, setMensagem] = useState('');
+  // const [nome, setNome] = useState('');
+  // const [sobreNome, setSobreNome] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [Telefone, setTelefone] = useState('');
+  // const [mensagem, setMensagem] = useState('');
 
-  function SendEmail() {
-    console.log(nome)
-  }
+  // function SendEmail() {
+  //   console.log(nome)
+  // }
 
 
 
@@ -200,6 +201,7 @@ const Img = styled.img`
   border-radius: 50%;
 `
 
+
 const AboutDescription = styled.div`
   width: 80%;
   max-width: 650px;
@@ -208,6 +210,31 @@ const AboutDescription = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`
+
+
+
+
+const ButtonWhatssap = styled.div`
+  position: fixed; 
+  right: 20px;
+  bottom: 10px;
+  z-index: 1; // Mantenha z-index em 1
+
+  &:hover {
+    transform: scale(1.1); 
+  }
+
+  @media (max-width: 600px) {
+    z-index: 0; 
+  }
+`;
+
+const ImgWhatssap = styled.img`
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  
 `
 
 const ButtonCta = styled.button`
@@ -292,71 +319,73 @@ const ShieldHabilidades = styled.div`
   overflow-y: hidden;
 `
 
-const Contato = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+// const Contato = styled.div`
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
-`
+//   align-items: center;
+//   justify-content: center;
+// `
 
-const ShieldContato = styled.div`
-  margin-top: 50px;
-  width: 80%;
-  max-width: 650px;
+// const ShieldContato = styled.div`
+//   margin-top: 50px;
+//   width: 80%;
+//   max-width: 650px;
 
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-`
-const Input = styled.input`
-  padding: 20px;
-  width: 80%;
-  max-width: 300px;
+//   display: flex;
+//   justify-content: space-around;
+//   flex-wrap: wrap;
+// `
+// const Input = styled.input`
+//   padding: 20px;
+//   width: 80%;
+//   max-width: 300px;
 
-  height: 45px;
-  border-radius: 12px;
-  font-size: 16px;
+//   height: 45px;
+//   border-radius: 12px;
+//   font-size: 16px;
 
-  font-weight: bold;
-  margin-bottom: 30px;
-`
+//   font-weight: bold;
+//   margin-bottom: 30px;
+// `
 
 
-const TextArea = styled.textarea`
-  width: 100%;
-  max-width: 630px;
-  height: 150px;
+// const TextArea = styled.textarea`
+//   width: 100%;
+//   max-width: 630px;
+//   height: 150px;
 
-  border-radius: 12px;
-  padding: 20px;
+//   border-radius: 12px;
+//   padding: 20px;
   
-  font-weight: bold;
-  font-size: 16px;
-`
+//   font-weight: bold;
+//   font-size: 16px;
+// `
 
-const ButtonEnviar = styled.button`
-  width: 100px;
-  height: 40px;
-  font-weight: bold;
+// const ButtonEnviar = styled.button`
+//   width: 100px;
+//   height: 40px;
+//   font-weight: bold;
 
-  background: var(--Cta);
-  color: var(--Black);
-  border-radius: 12px;
+//   background: var(--Cta);
+//   color: var(--Black);
+//   border-radius: 12px;
 
-  cursor: pointer;
-  margin-top: 30px;
-`
+//   cursor: pointer;
+//   margin-top: 30px;
+// `
 
 const Footer = styled.footer`
+  position: relative; 
   height: 200px;
   background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
   display: flex;
   justify-content: center;
   align-items: center;
-`
+ 
+`;
 
 const FooterContent = styled.div`
   width: 265px;
@@ -390,9 +419,9 @@ const Strong = styled.strong`
             <Li>
               <A href='#Habilidades'>Habilidades</A>
             </Li>
-            <Li>
+            {/* <Li>
               <A href='#Contato'>Contato</A>
-            </Li>
+            </Li> */}
             {isNavOpen ?
 
               <>
@@ -464,6 +493,12 @@ const Strong = styled.strong`
             </ButtonCta>
 
           </AboutDescription>
+
+          <ButtonWhatssap>
+          <a target='_blanck' aria-label="Chat on WhatsApp" href="https://api.whatsapp.com/send/?phone=5579999363300&text=Ol%C3%A1%20Wilian%20Tavares,%20Podemos%20conversar?" >
+          <ImgWhatssap src={Whatssap} alt='Botão Whatssap' />
+          </a >
+          </ButtonWhatssap>
         </About>
       </Section>
 
@@ -589,7 +624,7 @@ const Strong = styled.strong`
         </Habilidades>
       </Section>
 
-      <Section>
+      {/* <Section>
         <Contato id='Contato'>
           <h2>Entre em Contato</h2>
           <ShieldContato>
@@ -605,7 +640,7 @@ const Strong = styled.strong`
 
           </ShieldContato>
         </Contato>
-      </Section>
+      </Section> */}
 
       <Footer>
         <FooterContent>
