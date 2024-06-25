@@ -53,7 +53,7 @@ function App() {
   }
 
 
-const ButtonHamburger = styled.button`
+  const ButtonHamburger = styled.button`
   cursor: pointer;
   height: 40px;
   border:none;
@@ -62,7 +62,7 @@ const ButtonHamburger = styled.button`
   background: none;
 `
 
-const MenuBurger = styled.button`
+  const MenuBurger = styled.button`
   height: 40px;
   width: 40px;
   border: none;
@@ -78,7 +78,7 @@ const MenuBurger = styled.button`
 `
 
 
-const Header = styled.header`
+  const Header = styled.header`
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@ const Header = styled.header`
   }
 
   `
-const Nav = styled.nav`
+  const Nav = styled.nav`
   margin: 0 0;
   width: 100%; 
   {setIsNavOpen(false)} 
@@ -107,7 +107,7 @@ const Nav = styled.nav`
 
 `
 
-const Ul = styled.ul`
+  const Ul = styled.ul`
   display: flex;
   height: 500px;
   align-items: center;
@@ -123,14 +123,14 @@ const Ul = styled.ul`
     justify-content: space-evenly;
   }
 `
-const UlHabilidades = styled.ul`
+  const UlHabilidades = styled.ul`
   display: flex;
   height: 100px;
   align-items: center;
   justify-content: space-between;
 `
 
-const Li = styled.li`
+  const Li = styled.li`
   color: blue;
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};      //arrumar aqui
   font-weight: bold;
@@ -138,7 +138,7 @@ const Li = styled.li`
 
 `
 
-const ButtonTheme = styled.button`
+  const ButtonTheme = styled.button`
   width: 100px;
   height: 40px;
   font-weight: bold;
@@ -151,12 +151,12 @@ const ButtonTheme = styled.button`
   cursor: pointer;
 `
 
-const A = styled.a`
+  const A = styled.a`
   cursor: pointer;
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Gray)'};
 `
 
-const Section = styled.section`
+  const Section = styled.section`
   height: 80%;
   max-width: 1512px;
   display-flex;
@@ -165,7 +165,7 @@ const Section = styled.section`
   color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
 `
 
-const About = styled.div`
+  const About = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -175,7 +175,7 @@ const About = styled.div`
   }
 `;
 
-const AboutTitle = styled.div`
+  const AboutTitle = styled.div`
   width: 80%;
   max-width: 350px;
   display: flex;
@@ -185,7 +185,7 @@ const AboutTitle = styled.div`
   align-items: center;
 `
 
-const AboutSocial = styled.div`
+  const AboutSocial = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
@@ -196,14 +196,14 @@ const AboutSocial = styled.div`
 
 `
 
-const Img = styled.img`
+  const Img = styled.img`
   height: 150px;
   width: 150px;
   border-radius: 50%;
 `
 
 
-const AboutDescription = styled.div`
+  const AboutDescription = styled.div`
   width: 80%;
   max-width: 650px;
   display: flex;
@@ -216,7 +216,7 @@ const AboutDescription = styled.div`
 
 
 
-const ButtonWhatssap = styled.div`
+  const ButtonWhatssap = styled.div`
   position: fixed; 
   right: 20px;
   bottom: 10px;
@@ -231,14 +231,14 @@ const ButtonWhatssap = styled.div`
   }
 `;
 
-const ImgWhatssap = styled.img`
+  const ImgWhatssap = styled.img`
   height: 80px;
   width: 80px;
   border-radius: 50%;
   
 `
 
-const ButtonCta = styled.button`
+  const ButtonCta = styled.button`
   width: 100px;
   height: 40px;
   font-weight: bold;
@@ -251,14 +251,14 @@ const ButtonCta = styled.button`
   margin-top: 30px;
 `
 
-const ContainerMain = styled.div`
+  const ContainerMain = styled.div`
   background: var(--Creme);
   background-color: ${theme === 'dark' ? 'var(--Gray)' : 'var(--Creme)'};
 `
 
   //PROJETOS
 
-const Projetos = styled.div`
+  const Projetos = styled.div`
   display: flex;
   min-height: 60vh;
   flex-direction:column;
@@ -268,7 +268,7 @@ const Projetos = styled.div`
   margin-top: 50px;
 `
 
-const ShieldCards = styled.div`
+  const ShieldCards = styled.div`
   display: flex;
   padding: 20px;
   margin-top: 50px;
@@ -277,7 +277,7 @@ const ShieldCards = styled.div`
   overflow-x: auto;
 `
 
-const CardProjetos = styled.div`
+  const CardProjetos = styled.div`
   flex-shrink: 0;
   width: 90%;
   max-width: 500px;
@@ -294,9 +294,28 @@ const CardProjetos = styled.div`
   overflow-y: auto; /* Adicione overflow-y aqui para rolagem vertical */
 `;
 
-const CardContent = styled.div`
+  const CardContent = styled.div`
   max-width: 100%;
   overflow-y: auto;  
+`
+  const H3Projects = styled.div`
+  color: ${theme === 'dark' ? 'var(--White)' : 'var(--Black)'};
+
+
+  display: flex;
+  font-size: 24px;
+
+  align-items: center;
+  
+  &:hover {
+    color: ${theme === 'dark' ? 'var(--Gray)' : 'var(--Cta)'};
+  }
+
+`
+  const SpanProjects = styled.div`
+
+font-size: 16px;
+margin: 0 10px;
 `
 
   /* HABILIDADES */
@@ -309,7 +328,7 @@ const CardContent = styled.div`
     align-items: center;   
 `
 
-const ShieldHabilidades = styled.div`
+  const ShieldHabilidades = styled.div`
   margin-top: 100px;
   width: 80%;
   max-width: 950px;
@@ -321,64 +340,64 @@ const ShieldHabilidades = styled.div`
   overflow-y: hidden;
 `
 
-// const Contato = styled.div`
-//   height: 100vh;
-//   display: flex;
-//   flex-direction: column;
+  // const Contato = styled.div`
+  //   height: 100vh;
+  //   display: flex;
+  //   flex-direction: column;
 
-//   align-items: center;
-//   justify-content: center;
-// `
+  //   align-items: center;
+  //   justify-content: center;
+  // `
 
-// const ShieldContato = styled.div`
-//   margin-top: 50px;
-//   width: 80%;
-//   max-width: 650px;
+  // const ShieldContato = styled.div`
+  //   margin-top: 50px;
+  //   width: 80%;
+  //   max-width: 650px;
 
-//   display: flex;
-//   justify-content: space-around;
-//   flex-wrap: wrap;
-// `
-// const Input = styled.input`
-//   padding: 20px;
-//   width: 80%;
-//   max-width: 300px;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   flex-wrap: wrap;
+  // `
+  // const Input = styled.input`
+  //   padding: 20px;
+  //   width: 80%;
+  //   max-width: 300px;
 
-//   height: 45px;
-//   border-radius: 12px;
-//   font-size: 16px;
+  //   height: 45px;
+  //   border-radius: 12px;
+  //   font-size: 16px;
 
-//   font-weight: bold;
-//   margin-bottom: 30px;
-// `
+  //   font-weight: bold;
+  //   margin-bottom: 30px;
+  // `
 
 
-// const TextArea = styled.textarea`
-//   width: 100%;
-//   max-width: 630px;
-//   height: 150px;
+  // const TextArea = styled.textarea`
+  //   width: 100%;
+  //   max-width: 630px;
+  //   height: 150px;
 
-//   border-radius: 12px;
-//   padding: 20px;
-  
-//   font-weight: bold;
-//   font-size: 16px;
-// `
+  //   border-radius: 12px;
+  //   padding: 20px;
 
-// const ButtonEnviar = styled.button`
-//   width: 100px;
-//   height: 40px;
-//   font-weight: bold;
+  //   font-weight: bold;
+  //   font-size: 16px;
+  // `
 
-//   background: var(--Cta);
-//   color: var(--Black);
-//   border-radius: 12px;
+  // const ButtonEnviar = styled.button`
+  //   width: 100px;
+  //   height: 40px;
+  //   font-weight: bold;
 
-//   cursor: pointer;
-//   margin-top: 30px;
-// `
+  //   background: var(--Cta);
+  //   color: var(--Black);
+  //   border-radius: 12px;
 
-const Footer = styled.footer`
+  //   cursor: pointer;
+  //   margin-top: 30px;
+  // `
+
+  const Footer = styled.footer`
   position: relative; 
   height: 200px;
   background-color: ${theme === 'dark' ? 'var(--Black)' : 'var(--White)'};
@@ -389,7 +408,7 @@ const Footer = styled.footer`
  
 `;
 
-const FooterContent = styled.div`
+  const FooterContent = styled.div`
   width: 265px;
   height: 90px;
   display: flex;
@@ -398,12 +417,12 @@ const FooterContent = styled.div`
   justify-content: space-between;
 `
 
-const FooterSocialMedia = styled.div`
+  const FooterSocialMedia = styled.div`
   display: flex;
   justify-content: space-between;
 `
 
-const Strong = styled.strong`
+  const Strong = styled.strong`
   margin: 20px 0; 
 `
 
@@ -497,9 +516,9 @@ const Strong = styled.strong`
           </AboutDescription>
 
           <ButtonWhatssap>
-          <a target='_blanck' aria-label="Chat on WhatsApp" href="https://api.whatsapp.com/send/?phone=5579999363300&text=Ol%C3%A1%20Wilian%20Tavares,%20Podemos%20conversar?" >
-          <ImgWhatssap src={Whatssap} alt='Botão Whatssap' />
-          </a >
+            <a target='_blanck' aria-label="Chat on WhatsApp" href="https://api.whatsapp.com/send/?phone=5579999363300&text=Ol%C3%A1%20Wilian%20Tavares,%20Podemos%20conversar?" >
+              <ImgWhatssap src={Whatssap} alt='Botão Whatssap' />
+            </a >
           </ButtonWhatssap>
         </About>
       </Section>
@@ -526,14 +545,14 @@ const Strong = styled.strong`
                       {/*html Url*/}
                       <A target='_black' href={item.html_url} alt='Link do projeto no GitHub'>
                         {/*Name Project*/}
-                        <h3>{item.name}</h3>
+                        <H3Projects>{item.name} <SpanProjects>Acesse o Código</SpanProjects></H3Projects>
                       </A>
                       {/*Description*/}
                       <p>{item.description}</p>
 
                       {/*Homepage*/}
                       <A target='_blank' href={item.homepage} alt='Link do site'>
-                        <h3>Homepage</h3>
+                        <H3Projects>Homepage <SpanProjects>Acesse o Site</SpanProjects></H3Projects>
                       </A>
                       {/*Stacks Icon*/}
                       {item.topics.map((icon) => {
