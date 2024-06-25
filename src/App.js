@@ -93,7 +93,7 @@ const Header = styled.header`
 
   `
 const Nav = styled.nav`
-  margin: 0 60px;
+  margin: 0 0;
   width: 100%; 
   {setIsNavOpen(false)} 
 
